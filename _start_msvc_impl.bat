@@ -5,12 +5,44 @@
 @rem for /f "tokens=3 delims=\" %%x in ("%%a") do echo %%x
 @rem )
 
-@set MSVS_TOOLSET=2019
-@rem set MSVS_ARCH=x86
-@set MSVS_ARCH=x64
-@call %~dp0\_find_msvc.bat
-@if exist %~dp0\..\.set_msvc.bat @call %~dp0\..\.set_msvc.bat
+@if not "%SKIP_IMPLISIT_MSVC_SETUP%"=="" @goto SKIP_IMPLISIT_MSVC_SETUP
+@if not exist %~dp0\..\.set_msvc.bat @goto SKIP_IMPLISIT_MSVC_SETUP
+@call %~dp0\..\.set_msvc.bat
+@goto MSVC_TAKEN
 
-@if "%MSVS_TOOLSET%"=="" exit /B 1
+:SKIP_IMPLISIT_MSVC_SETUP
+@echo Enter MS Visual Studio Version (2017/15, 2019/16, 2022/17, 2026/18, D/d/default):
+@set /p MSVC=
+@if "%MSVC%"=="2017"    @set MSVC=2017
+@if "%MSVC%"=="2019"    @set MSVC=2019
+@if "%MSVC%"=="2022"    @set MSVC=2022
+@if "%MSVC%"=="2026"    @set MSVC=2026
+@if "%MSVC%"=="15"      @set MSVC=2017
+@if "%MSVC%"=="16"      @set MSVC=2019
+@if "%MSVC%"=="17"      @set MSVC=2022
+@if "%MSVC%"=="18"      @set MSVC=2026
+@if "%MSVC%"=="D"       @(
+  @set MSVC=
+  @call %~dp0\_find_msvc.bat
+)
+@if "%MSVC%"=="d"       @(
+  @set MSVC=
+  @call %~dp0\_find_msvc.bat
+)
+@if "%MSVC%"=="default" @(
+  @set MSVC=
+  @call %~dp0\_find_msvc.bat
+)
 
-@call %~dp0\_generate_msvc.bat msvc%MSVS_TOOLSET% && @start "" ".out\msvc%MSVS_TOOLSET%\%MSVS_ARCH%\%1%.sln"
+@if "%MSVC%"=="" exit /B 1
+
+@echo Entered MSVC=%MSVC%
+
+@rem Ќе будем заставл€ть вводить архитектуру, по умолчанию примем x64, оно сейчас уже везде
+@rem ј кому надо собирать x86, пусть заморочатс€
+@if "%MSVC_ARCH%"=="" @set MSVC_ARCH=x64
+
+:MSVC_TAKEN
+set MSVC_SLN_EXT=sln
+@call %~dp0\msvc_set_sln_ext.bat
+@call %~dp0\_generate_msvc.bat msvc%MSVC% && @start "" ".out\msvc%MSVC%\%MSVC_ARCH%\%1.%MSVC_SLN_EXT%"
