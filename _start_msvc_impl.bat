@@ -44,6 +44,7 @@
 @rem Ќе будем заставл€ть вводить архитектуру, по умолчанию примем x64, оно сейчас уже везде
 @rem ј кому надо собирать x86, пусть заморочатс€
 @if "%MSVC_ARCH%"=="" @set MSVC_ARCH=x64
+@echo MSVC=%MSVC%
 @echo MSVC_ARCH=%MSVC_ARCH%
 
 set MSVC_SLN_EXT=sln
