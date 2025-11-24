@@ -5,9 +5,19 @@
 @rem for /f "tokens=3 delims=\" %%x in ("%%a") do echo %%x
 @rem )
 
+@if not "%MSVC%"=="" @echo Force taken MSVC=%MSVC%
+@if not "%MSVC%"=="" @goto MSVC_TAKEN
+
+@if not "%SKIP_IMPLISIT_MSVC_SETUP%"=="" @echo Force skip implicit MSVC setup
 @if not "%SKIP_IMPLISIT_MSVC_SETUP%"=="" @goto SKIP_IMPLISIT_MSVC_SETUP
+
+@if not exist %~dp0\..\.set_msvc.bat @echo Skip implicit MSVC setup - there is no '.set_msvc.bat' in project root folder
 @if not exist %~dp0\..\.set_msvc.bat @goto SKIP_IMPLISIT_MSVC_SETUP
+
+@echo Calling PROJECT_ROOT\.set_msvc.bat
 @call %~dp0\..\.set_msvc.bat
+@echo Explicit MSVC=%MSVC%
+@echo Explicit MSVC_ARCH=%MSVC_ARCH%
 @goto MSVC_TAKEN
 
 :SKIP_IMPLISIT_MSVC_SETUP
