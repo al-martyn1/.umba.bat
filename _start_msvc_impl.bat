@@ -38,11 +38,14 @@
 
 @echo Entered MSVC=%MSVC%
 
+
+:MSVC_TAKEN
+
 @rem Ќе будем заставл€ть вводить архитектуру, по умолчанию примем x64, оно сейчас уже везде
 @rem ј кому надо собирать x86, пусть заморочатс€
 @if "%MSVC_ARCH%"=="" @set MSVC_ARCH=x64
+@echo MSVC_ARCH=%MSVC_ARCH%
 
-:MSVC_TAKEN
 set MSVC_SLN_EXT=sln
 @call %~dp0\msvc_set_sln_ext.bat
 @call %~dp0\_generate_msvc.bat msvc%MSVC% && @start "" ".out\msvc%MSVC%\%MSVC_ARCH%\%1.%MSVC_SLN_EXT%"
