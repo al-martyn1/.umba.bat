@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @rem Генерация сборочных скриптов x86/x64 Debug/Release для заданной версии MSVC
 @rem call this: call _generate_msvc.bat msvc2017|msvc2019|msvc2022|msvc2026
 @rem https://learn.microsoft.com/en-us/cpp/build/customize-cmake-settings?view=msvc-170

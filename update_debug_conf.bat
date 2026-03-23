@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @rem Configure OUTROOTPATHS var
 @call "%~dp0\setup_out_root_paths.bat"
 

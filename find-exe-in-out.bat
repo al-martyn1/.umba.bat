@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @call "%~dp0\setup_out_root_paths.bat"
 @set LOOKUP_FOR=%1
 @rem https://superuser.com/questions/1569197/what-is-the-meaning-of-tilde-in-batch-variables

@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @rem VS120COMNTOOLS=E:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\
 @rem VS140COMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\
 @rem VS150COMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\

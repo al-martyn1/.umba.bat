@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @rem Run this file only from project root
 @if "%CLOCOUTDIR%"=="" @set CLOCOUTDIR=%~dp0..\doc
 @if "%CLOCEXCLUDEDIRS%"=="" @set CLOCEXCLUDEDIRS=.vscode,_libs,_lib,libs,lib,tests
