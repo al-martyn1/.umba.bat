@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @rem Не работает
 @rem https://stackoverflow.com/questions/13880742/check-visual-studio-shell-installation-from-batch
 @rem @echo off

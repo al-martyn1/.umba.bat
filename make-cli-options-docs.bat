@@ -1,3 +1,8 @@
+@rem author Alexander Martynov (Marty AKA al-martyn1) <amart@mail.ru>
+@rem copyright (c) 2024-2026 Alexander Martynov
+@rem brief 
+@rem ----------------------------------------------------------------
+
 @if not exist "%~dp0..\.set_sln_exes.bat" @goto DO_NOTHING
 @call "%~dp0..\.set_sln_exes.bat"
 @rem
