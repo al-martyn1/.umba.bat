@@ -63,14 +63,25 @@ cmake -S "%~dp0\.." -G %GENERATOR%  -A %ARCH% -B "%~dp0\..\.out\%TOOLSET%\%ARCH_
 @if ERRORLEVEL 1 goto ERR
 @goto END
 
+@rem After -- add /v:detailed or some other verbosity options^
+@rem /v:quiet
+@rem /v:minimal
+@rem /v:normal
+@rem /v:detailed
+@rem /v:diagnostic
+@rem MS Visual Studio - build log control
+@rem Menu: Tools → Options
+@rem Projects and Solutions → Build and Run.
+@rem MSBuild project build output verbosity
+@rem MSBuild project build log file verbosity
 @rem https://ss64.com/nt/errorlevel.html
 :PERFORM_BUILD
 @rem -S "%~dp0\.."
 @rem 
-cmake --build "%~dp0\..\.out\%TOOLSET%\%ARCH_PATH%" --config Debug   --target ALL_BUILD -j 8 -- 
+cmake --build "%~dp0\..\.out\%TOOLSET%\%ARCH_PATH%" --config Debug   %UMBA_CMAKE_VERBOSE% --target ALL_BUILD -j 8 -- %UMBA_CMAKE_MSBUILD_VERBOSE%
 @rem echo %errorlevel%
 @if ERRORLEVEL 1 goto ERR
-cmake --build "%~dp0\..\.out\%TOOLSET%\%ARCH_PATH%" --config Release --target ALL_BUILD -j 8 --
+cmake --build "%~dp0\..\.out\%TOOLSET%\%ARCH_PATH%" --config Release %UMBA_CMAKE_VERBOSE% --target ALL_BUILD -j 8 -- %UMBA_CMAKE_MSBUILD_VERBOSE%
 @if ERRORLEVEL 1 goto ERR
 @goto END
 
